@@ -5,6 +5,10 @@
 npm install
 ```
 
+### Settings
+- Create `.env` file copy code from `.env.example` file.
+- Generate an api access code from the backend project and set variable VUE_APP_ACESS_TOKEN in .env to the access key
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
@@ -15,10 +19,6 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Visit Frontend
+[Frontend for the project](http://localhost:8085/).
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
