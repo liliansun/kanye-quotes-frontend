@@ -1,4 +1,5 @@
-# avrillo-code-test-frontend
+## Project Description
+A site to fetch and refresh the 5 random quotes from Kayne West quotes
 
 ## Project setup
 ```
