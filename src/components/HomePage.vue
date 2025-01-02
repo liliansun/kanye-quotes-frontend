@@ -53,7 +53,7 @@ export default {
       this.clearStatus()
       this.quotes = []
 
-      api.get('/quotes').then((response) => {
+      api.get('/api/quotes').then((response) => {
         this.quotes = response.data
         this.status.successMessage = 'New quotes fetched'
         this.loading = false
