@@ -6,7 +6,7 @@
     <div class="flex flex-wrap -mx-2">
       <div class="w-full px-2">
         <div class="flex justify-end">
-          <button class="px-3 py-2 rounded inline-block text-sm" @click="getQuotes"><i class="fa fa-refresh"></i> Refresh</button>
+          <button class="px-3 py-2 rounded inline-block text-sm" @click="refreshQuotes"><i class="fa fa-refresh"></i> Refresh</button>
         </div>
         <panel-component heading="5 Quotes to inspire you" heading-background="bg-teal-400 text-center">
           <div class="p-4" v-if="quotes.length > 0">
@@ -38,6 +38,7 @@ export default {
     return {
       loading: false,
       quotes: [],
+      fetchUrl: '/api/quotes',
       status: {
         successMessage: null,
         errorMessage: null
@@ -49,11 +50,19 @@ export default {
   },
   methods: {
     getQuotes () {
+      this.fetchUrl = '/api/quotes'
+      this.sendRequest()
+    },
+    refreshQuotes () {
+      this.fetchUrl = '/api/refresh-quotes'
+      this.sendRequest()
+    },
+    sendRequest () {
       this.loading = true
       this.clearStatus()
       this.quotes = []
 
-      api.get('/api/quotes').then((response) => {
+      api.get(this.fetchUrl).then((response) => {
         this.quotes = response.data
         this.status.successMessage = 'New quotes fetched'
         this.loading = false
